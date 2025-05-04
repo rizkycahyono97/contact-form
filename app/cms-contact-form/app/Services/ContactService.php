@@ -72,7 +72,7 @@ class ContactService
     public function createContact(array $data) {
         $response = Http::post($this->apiUrl, $data);
 
-        if ($response->successful() && $response['code'] === 'SUCCESS' && is_array($response['data'])) {
+        if ($response->successful() && $response['code'] === 'CREATED' && is_array($response['data'])) {
             return $response['data'];
         }
 
@@ -95,7 +95,7 @@ class ContactService
      * @return array|null
      */
     public function updateContact($id, array $data) {
-        $response = Http::put("{$this->apiUrl}/{$data}");
+        $response = Http::put("{$this->apiUrl}/{$id}", $data);
 
 
         if ($response->successful() && $response['code'] === 'SUCCESS' && is_array($response['data'])) {
@@ -121,20 +121,20 @@ class ContactService
      */
     public function deleteContact($id) {
         $response = Http::delete("{$this->apiUrl}/{$id}");
-
-        if ($response->successful() && $response['code'] === 'SUCCESS' && is_array($response['data'])) {
-            return $response['data'];
+    
+        if ($response->successful() && $response['code'] === 'SUCCESS') {
+            return true;
         }
-
-        // Log detailed error information to stderr
-        Log::channel('stderr')->error('Failed to get contact.', [
-            'api_url' => $this->apiUrl,
+    
+        Log::channel('stderr')->error('Failed to delete contact.', [
+            'api_url' => "{$this->apiUrl}/{$id}",
             'status' => $response->status(),
             'body' => $response->body(),
             'response_data' => $response->json(), 
         ]);
-
-        return null;
+    
+        return false;
     }
+    
 
 }

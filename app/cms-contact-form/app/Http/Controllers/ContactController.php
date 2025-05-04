@@ -74,7 +74,7 @@ class ContactController extends Controller
       $contact = $this->contactService->getContactById($id);
 
       if ($contact) {
-         return view('contacts.show', compact('contacts'));
+         return view('contacts.show', compact('contact'));
       }
 
       return redirect()->route('contacts.index')->withErrors(['error' => 'Contact Not Found']);
@@ -90,7 +90,7 @@ class ContactController extends Controller
       $contact = $this->contactService->getContactById($id);
 
       if ($contact) {
-         return view('contacts.edit', compact('contacts'));
+         return view('contacts.edit', compact('contact'));
       }
 
       return redirect()->route('contacts.index')->withErrors(['error' => 'Contact not Found']);
@@ -134,7 +134,7 @@ class ContactController extends Controller
       $success = $this->contactService->deleteContact($id);
 
       if ($success) {
-         return redirect()->route('contacts.index')->with('sucess', 'contact deleted sucessfully');
+         return redirect()->route('contacts.index')->with('success', 'Contact deleted successfully');
       } 
 
       // Redirect back with error if deletion failed

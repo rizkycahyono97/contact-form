@@ -9,4 +9,4 @@ Route::get('/', function () {
 
 // Define a resource route for the ContactController
 // This automatically sets up standard routes for index, create, store, show, edit, update, and destroy actions
-Route::resource('contact', ContactController::class);
+Route::resource('contacts', ContactController::class);
