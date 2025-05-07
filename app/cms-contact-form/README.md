@@ -102,4 +102,4 @@ MIT License
 
 ## ✍️ Author
 
-Rizky Cahyono Putra
+Rizky Cahyono Putra.
