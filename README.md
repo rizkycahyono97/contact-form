@@ -109,6 +109,6 @@ MIT License
 
 ## ✍️ Author
 
-Aditya Firman Nugroho
+Rizky Cahyono Putra
 
 ```
