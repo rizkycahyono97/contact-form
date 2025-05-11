@@ -3,7 +3,7 @@ services:
   mariadb-contact-form:
     image: mariadb:latest
     container_name: mariadb-contact-form
-    restart: on-failure
+    restart: no
     env_file:
       - .env
     environment:
