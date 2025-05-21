@@ -262,7 +262,7 @@ docker ps
 
 ---
 
-**## Testing
+## Testing
 
 Untuk menguji API Contact Form, Anda dapat menggunakan file koleksi Postman yang telah disediakan, import di Postman anda.
 
